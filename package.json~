@@ -1,0 +1,25 @@
+{
+  "name": "ssh_frame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "jquery": "^3.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki-js/ssh_frame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuki-js/ssh_frame/issues"
+  },
+  "homepage": "https://github.com/yuki-js/ssh_frame#readme"
+}

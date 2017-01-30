@@ -1,0 +1,176 @@
+/* http://meyerweb.com/eric/tools/css/reset/  v2.0 | 20110126 License: none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers  */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: "Ionicons";
+  src: url("http://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1");
+  src: url("http://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.1") format("truetype"), url("http://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.1") format("woff"), url("http://code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.ion, .pausing:before, .playing:before, #rew1000ms:before, #ff1000ms:before, .delete:before, #markerAddForm #addMarker:before {
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+#videoArea {
+  position: relative;
+  width: 100%;
+  height: 70%; }
+  #videoArea video {
+    position: relative;
+    width: 100%;
+    height: 100%; }
+
+.pausing:before {
+  content: "\f488"; }
+
+.playing:before {
+  content: "\f478"; }
+
+#rew1000ms:before {
+  content: "\f4a1"; }
+
+#ff1000ms:before {
+  content: "\f427"; }
+
+.delete {
+  color: white;
+  font-size: large; }
+  .delete:before {
+    content: "\f4c4"; }
+
+#controlArea {
+  position: relative; }
+
+#videoArea {
+  position: relative; }
+
+#buttons {
+  position: relative;
+  border-top: 1px solid #4b7dfd;
+  border-bottom: 1px solid #4b7dfd; }
+  #buttons:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden; }
+
+.skipBtn, #play, .speedBtn {
+  position: relative;
+  text-decoration: none;
+  display: block;
+  float: left;
+  border-left: 1px solid #4b7dfd;
+  line-height: 50px;
+  text-align: center; }
+
+.skipBtn, .speedBtn {
+  color: #4b7dfd;
+  width: 10%; }
+  .skipBtn:active, .speedBtn:active {
+    background-color: #cccccc; }
+
+#play {
+  width: 18%;
+  background-color: #4b7dfd;
+  color: white; }
+  #play:active {
+    background-color: #0241e0; }
+
+#seek {
+  position: relative; }
+
+#bar {
+  position: relative;
+  background-color: #777;
+  height: 10px;
+  margin: 10px 10px 6px 10px; }
+  #bar #played {
+    width: 0%;
+    background-color: #4b7dfd;
+    height: 100%; }
+
+#markerArea {
+  position: relative;
+  height: 100px;
+  margin: 10px; }
+
+.markerContainer {
+  position: absolute; }
+
+.marker {
+  position: relative;
+  background: #d50f0f;
+  left: -50%;
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px 0px #000;
+  padding: 5px;
+  color: white;
+  font-weight: 700;
+  text-align: center; }
+
+.marker:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(213, 15, 15, 0);
+  border-bottom-color: #d50f0f;
+  border-width: 10px;
+  margin-left: -10px; }
+
+#markerAddForm {
+  font-size: large;
+  border: 1px solid #dddddd;
+  display: inline-block; }
+  #markerAddForm #markerName {
+    border: none;
+    display: inline-block;
+    padding: 10px; }
+  #markerAddForm #addMarker {
+    display: inline-block;
+    background-color: #4b7dfd;
+    color: #ffffff;
+    padding: 10px; }
+    #markerAddForm #addMarker:before {
+      content: "\f218"; }
