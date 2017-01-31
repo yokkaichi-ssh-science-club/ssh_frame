@@ -18,53 +18,55 @@
 $baseColor:#4b7dfd;
 $amountDarken:20%;
 #videoArea{
-  position:relative;
+  position:absolute;
   width:100%;
-  height:70%;
+  height:100%;
   video{
-    position:relative;
+    position:absolute;
     width:100%;
     height:100%;
   }
 }
 
-.pausing{
-  &:before{
-    @extend .ion;
-    content:"\f488";
-  }
+.pausing:before{
+  @extend .ion;
+  content:"\f488";
 }
-.playing{
-  &:before{
-    @extend .ion;
-    content:"\f478";
-  }
+.playing:before{
+  @extend .ion;
+  content:"\f478";
+  
 }
-#rew1000ms{
-  &:before{
-    @extend .ion;
-    content:"\f4a1";
-  }
+#rew1000ms:before{
+  @extend .ion;
+  content:"\f4a1";
+  
 }
-#ff1000ms{
-  &:before{
-    @extend .ion;
-    content:"\f427";
-  }
+#ff1000ms:before{
+  @extend .ion;
+  content:"\f427";
+}
+#fast:before{
+  @extend .ion;
+  content:"\f218";
+}
+#slow:before{
+  @extend .ion;
+  content:"\f209"; 
 }
 .delete{
-  color:white;
+  color:#f00;
   font-size:large;
   &:before{
     @extend .ion;
-    content:"\f4c4";
+    content:"\f4c5";
   }
 }
 #controlArea{
-  position:relative;
-}
-#videoArea{
-  position:relative;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:rgba(255,255,255,0.8);
 }
 #buttons{
   position:relative;
@@ -101,6 +103,34 @@ $amountDarken:20%;
     background-color:darken($baseColor,$amountDarken);
   }
 }
+
+#timeControl{
+  #currentTime,#speed{
+    font-size:20px;
+    font-weight:700;
+    border:none;
+    text-align:right;
+  }
+  #currentTime{
+    width:80px;
+  }
+  #speed{
+    width:60px;
+  }
+  
+}
+#hideMarker{
+  color:black;
+  border:1px solid #aaa;
+  border-radius:5px;
+  text-decoration:none;
+  padding:3px;
+  &:before{
+    @extend .ion;
+    content:"\f42d";
+  
+  }
+}
 #seek{
   position:relative;
 }
@@ -108,7 +138,7 @@ $amountDarken:20%;
   position:relative;
   background-color:#777;
   height:10px;
-  margin:10px 10px 6px 10px;
+  margin:3px 10px;
   #played{
     width:0%;
     background-color:$baseColor;
@@ -117,8 +147,7 @@ $amountDarken:20%;
 }
 #markerArea{
   position:relative;
-  
-  height:100px;
+  height:30px;
   margin:10px;
 }
 .markerContainer{
@@ -168,5 +197,35 @@ $amountDarken:20%;
       @extend .ion;
       content:"\f218";
     }
+  }
+}
+#markerList{
+  padding:10px;
+  .markerItem{
+    border-top:1px solid #aaa;
+    line-height:50px;
+    height:50px;
+    .time{
+      display:inline-block;
+      width:75px;
+    }
+    .delete{
+      display:inline-block;
+      margin:0 10px;
+    }
+  }
+  
+}
+#loader{
+  #dropArea{
+    margin:5%;
+    border:2px solid $baseColor;
+    border-radius:20px;
+    padding:10%;
+    
+  }
+  #error{
+    font-size:large;
+    color:#f00;
   }
 }

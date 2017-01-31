@@ -35,7 +35,7 @@ table {
   font-weight: normal;
   font-style: normal; }
 
-.ion, .pausing:before, .playing:before, #rew1000ms:before, #ff1000ms:before, .delete:before, #markerAddForm #addMarker:before {
+.ion, .pausing:before, .playing:before, #rew1000ms:before, #ff1000ms:before, #fast:before, #slow:before, .delete:before, #hideMarker:before, #markerAddForm #addMarker:before {
   display: inline-block;
   font-family: "Ionicons";
   speak: none;
@@ -49,11 +49,11 @@ table {
   -moz-osx-font-smoothing: grayscale; }
 
 #videoArea {
-  position: relative;
+  position: absolute;
   width: 100%;
-  height: 70%; }
+  height: 100%; }
   #videoArea video {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%; }
 
@@ -69,17 +69,23 @@ table {
 #ff1000ms:before {
   content: "\f427"; }
 
+#fast:before {
+  content: "\f218"; }
+
+#slow:before {
+  content: "\f209"; }
+
 .delete {
-  color: white;
+  color: #f00;
   font-size: large; }
   .delete:before {
-    content: "\f4c4"; }
+    content: "\f4c5"; }
 
 #controlArea {
-  position: relative; }
-
-#videoArea {
-  position: relative; }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8); }
 
 #buttons {
   position: relative;
@@ -113,6 +119,27 @@ table {
   #play:active {
     background-color: #0241e0; }
 
+#timeControl #currentTime, #timeControl #speed {
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  text-align: right; }
+
+#timeControl #currentTime {
+  width: 80px; }
+
+#timeControl #speed {
+  width: 60px; }
+
+#hideMarker {
+  color: black;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 3px; }
+  #hideMarker:before {
+    content: "\f42d"; }
+
 #seek {
   position: relative; }
 
@@ -120,7 +147,7 @@ table {
   position: relative;
   background-color: #777;
   height: 10px;
-  margin: 10px 10px 6px 10px; }
+  margin: 3px 10px; }
   #bar #played {
     width: 0%;
     background-color: #4b7dfd;
@@ -128,7 +155,7 @@ table {
 
 #markerArea {
   position: relative;
-  height: 100px;
+  height: 30px;
   margin: 10px; }
 
 .markerContainer {
@@ -174,3 +201,26 @@ table {
     padding: 10px; }
     #markerAddForm #addMarker:before {
       content: "\f218"; }
+
+#markerList {
+  padding: 10px; }
+  #markerList .markerItem {
+    border-top: 1px solid #aaa;
+    line-height: 50px;
+    height: 50px; }
+    #markerList .markerItem .time {
+      display: inline-block;
+      width: 75px; }
+    #markerList .markerItem .delete {
+      display: inline-block;
+      margin: 0 10px; }
+
+#loader #dropArea {
+  margin: 5%;
+  border: 2px solid #4b7dfd;
+  border-radius: 20px;
+  padding: 10%; }
+
+#loader #error {
+  font-size: large;
+  color: #f00; }
