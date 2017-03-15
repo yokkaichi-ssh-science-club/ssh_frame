@@ -19,12 +19,29 @@ $baseColor:#4b7dfd;
 $amountDarken:20%;
 #videoArea{
   position:absolute;
-  width:100%;
+  width:50%;
   height:100%;
+  left:0;
   video{
     position:absolute;
     width:100%;
     height:100%;
+    transform-origi:left top;
+  }
+  &.max{
+    width:100%;
+  }
+}
+
+#viewer.dockBottom{
+  #videoArea{
+    width:100%;
+    bottom:0;
+  }
+  #controlArea{
+    bottom:0;
+    width:100%;
+    height:auto;
   }
 }
 
@@ -62,10 +79,12 @@ $amountDarken:20%;
     content:"\f4c5";
   }
 }
+
 #controlArea{
   position:fixed;
-  bottom:0;
-  width:100%;
+  right:0;
+  width:50%;
+  height:100%;
   background:rgba(255,255,255,0.8);
 }
 #buttons{
@@ -90,13 +109,22 @@ $amountDarken:20%;
 }
 .skipBtn,.speedBtn{
   color:$baseColor;
-  width:10%;
+  font-size:small;
   &:active{
     background-color:darken(#ffffff,$amountDarken);
   }
 }
+.skipBtn{
+  width:12%;
+}
+.speedBtn{
+  width:100%;
+  *{
+    width:24.5%;
+  }
+}
 #play{
-  width:18%;
+  width:20%;
   background-color:$baseColor;
   color:white;
   &:active{
@@ -119,17 +147,12 @@ $amountDarken:20%;
   }
   
 }
-#hideMarker{
+#hideMarker,#dockBottom{
   color:black;
   border:1px solid #aaa;
   border-radius:5px;
   text-decoration:none;
   padding:3px;
-  &:before{
-    @extend .ion;
-    content:"\f42d";
-  
-  }
 }
 #seek{
   position:relative;
@@ -148,7 +171,7 @@ $amountDarken:20%;
 #markerArea{
   position:relative;
   height:30px;
-  margin:10px;
+  margin:10px 10px 0px 10px;
 }
 .markerContainer{
   position:absolute;

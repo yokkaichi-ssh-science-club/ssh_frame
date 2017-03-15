@@ -78,9 +78,22 @@ var markers=$("#markerArea,#markerAddForm,#markerList");
 $("#hideMarker").on("click",function(){
   markers.toggle();
 });
+$("#dockBottom").on("click",function(){
+  $("#viewer").toggleClass("dockBottom");
+});
 var ctrlArea=$("#controlArea");
 $("#videoArea").on("click",function(){
   ctrlArea.toggle();
+  $(this).toggleClass("max");
+});
+var zoom=1;
+$("#zoomIn").on("click",function(){
+  zoom+=0.1;
+  $video.css("transform","scale3d("+zoom+","+zoom+",1)")
+});
+$("#zoomOut").on("click",function(){
+  zoom-=0.1;
+  $video.css("transform","scale3d("+zoom+","+zoom+",1)")
 });
 /*
 to do
