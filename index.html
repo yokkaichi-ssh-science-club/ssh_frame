@@ -10,6 +10,8 @@
     <div id="viewer" style=display:none;>
     <div id="videoArea">
       <video id="mainVideo" src="http://html5demos.com/assets/dizzy.mp4"></video>
+      <canvas id="cvs"></canvas>
+      <div id="toggleCtrl">Toggle Controller</div>
     </div>
     <div id="controlArea">
       <div id="buttons">
@@ -50,7 +52,11 @@
       </div>
       <div id="markerAddForm">
         <input id="markerName" type="text" placeholder="Enter marker name"/>
+        
         <a id="addMarker" href="#"></a>
+      </div>
+      <div id="lineForm">
+        <input id="lineColor" type="text" placeholder="rgb(0,0,0)"/>
       </div>
       <div id="markerList">
         

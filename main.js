@@ -2,6 +2,7 @@ var $ = require("jquery");
 var $video=$("video");
 var video=$video[0];
 var seekBar=$("#played");
+var $vArea=$("#videoArea")
 
 var playBtn=$("#play").on("click",function(){
   if(video.paused){
@@ -43,6 +44,9 @@ $("#addMarker").on("click",function(){
   $('<div class="markerContainer" data-ms="'+time+'"><div class="marker"><div class="time">'+time+'ms</div></div></div>').appendTo(markerArea).css("left",(video.currentTime/video.duration*100)+"%");
   $('<div class="markerItem" data-ms="'+time+'"><span class="time">'+time+'ms</span><span class="text">'+markerName.val()+'</span><a class="delete" href="#"></a></div>').appendTo("#markerList");
 });
+markerName.on("keydown",function(e){
+  if(e.keyCode===13)$("#addMarker").click();
+})
 markerList.on("click",".delete",function(){
   var $this=$(this).parent();
   $(".markerContainer[data-ms="+$this.attr("data-ms")+"]").remove();
@@ -73,6 +77,7 @@ $("#videoFile").on("change",function(){
   video.src=URL.createObjectURL(this.files[0]);
   loader.hide();
   viewer.show();
+  resetCanvasSize()
 });
 var markers=$("#markerArea,#markerAddForm,#markerList");
 $("#hideMarker").on("click",function(){
@@ -80,11 +85,13 @@ $("#hideMarker").on("click",function(){
 });
 $("#dockBottom").on("click",function(){
   $("#viewer").toggleClass("dockBottom");
+  resetCanvasSize()
 });
 var ctrlArea=$("#controlArea");
-$("#videoArea").on("click",function(){
+$("#toggleCtrl").on("click",function(){
   ctrlArea.toggle();
-  $(this).toggleClass("max");
+  $vArea.toggleClass("max");
+  resetCanvasSize()
 });
 var zoom=1;
 $("#zoomIn").on("click",function(){
@@ -95,6 +102,42 @@ $("#zoomOut").on("click",function(){
   zoom-=0.1;
   $video.css("transform","scale3d("+zoom+","+zoom+",1)")
 });
+
+var $cvs = $("#cvs")
+var ctx = $cvs[0].getContext("2d")
+
+var bPath=[null,null]
+
+$cvs.on("mousedown",function(e){
+  bPath[0]=e.offsetX;
+  bPath[1]=e.offsetY;
+})
+$cvs.on("mouseup",function(e){
+  bPath[0]=null
+  bPath[1]=null
+})
+
+$cvs.on("mousemove",function(e){
+  ctx.clearRect(0,0,$vArea.width(),$vArea.height())
+  ctx.fillStyle="rgb(255,0,0)"
+  ctx.fillRect(e.offsetX-1,e.offsetY-1,2,2)
+  
+  if(bPath[0]===null){return}
+  ctx.strokeStyle=$("#lineColor").val()||"rgb(0,0,0)"
+  ctx.beginPath()
+  ctx.moveTo(bPath[0],bPath[1])
+  ctx.lineTo(e.offsetX,e.offsetY)
+  ctx.closePath()
+  ctx.stroke()
+  
+})
+
+function resetCanvasSize(){
+  $cvs.attr("width",$vArea.width())
+  $cvs.attr("height",$vArea.height())
+  
+}
+
 /*
 to do
 

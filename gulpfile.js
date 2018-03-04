@@ -10,7 +10,7 @@ var browserify=require("browserify");
 gulp.task("browserSync", function() {
   browser.init({
     server:true,
-    open:false
+    open:true
   });
 });
 gulp.task("sass", function() {
