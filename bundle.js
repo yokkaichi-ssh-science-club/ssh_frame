@@ -107,26 +107,15 @@ $("#zoomOut").on("click",function(){
 var $cvs = $("#cvs")
 var ctx = $cvs[0].getContext("2d")
 
-var bPath=[null,null]
-
-$cvs.on("mousedown",function(e){
-  bPath[0]=e.offsetX;
-  bPath[1]=e.offsetY;
-})
-$cvs.on("mouseup",function(e){
-  bPath[0]=null
-  bPath[1]=null
-})
 
 $cvs.on("mousemove",function(e){
   ctx.clearRect(0,0,$vArea.width(),$vArea.height())
   ctx.fillStyle="rgb(255,0,0)"
   ctx.fillRect(e.offsetX-1,e.offsetY-1,2,2)
-  
-  if(bPath[0]===null){return}
+  ctx.lineWidth=0.5
   ctx.strokeStyle=$("#lineColor").val()||"rgb(0,0,0)"
   ctx.beginPath()
-  ctx.moveTo(bPath[0],bPath[1])
+  ctx.moveTo(e.offsetX,e.offsetY-300)
   ctx.lineTo(e.offsetX,e.offsetY)
   ctx.closePath()
   ctx.stroke()
