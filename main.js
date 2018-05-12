@@ -120,6 +120,7 @@ $cvs.on("mousemove",function(e){
   ctx.stroke()
   
 })
+$(window).on("resize",resetCanvasSize)
 
 function resetCanvasSize(){
   $cvs.attr("width",$vArea.width())

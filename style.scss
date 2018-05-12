@@ -255,6 +255,7 @@ $amountDarken:20%;
 #markerList{
   padding:10px;
   max-height: 500px;
+  overflow:scroll;
   .markerItem{
     border-top:1px solid #aaa;
     line-height:50px;

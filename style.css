@@ -248,7 +248,8 @@ table {
 
 #markerList {
   padding: 10px;
-  max-height: 500px; }
+  max-height: 500px;
+  overflow: scroll; }
   #markerList .markerItem {
     border-top: 1px solid #aaa;
     line-height: 50px;
